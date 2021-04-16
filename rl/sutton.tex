@@ -18,4 +18,28 @@ solutions to non-overlapping sub-problems, the strategy is called ``divide and
 conquer'' instead. This is why merge sort and quick sort are not classified as
 dynamic programming problems.
 
+\vskip \baselineskip
+
+\noindent{}{\bf Control} vs {\bf Prediction}: A prediction task in RL is where
+the policy is supplied, and the goal is to measure how well it performs.  A
+control task in RL is where the policy is not fixed, and the goal is to find the
+optimal policy. That is, to find the policy $\pi(a|s)$ that maximises the
+expected total reward from any given state.
+
+\vskip \baselineskip
+
+\noindent{}{\bf Why?} ``Without a model, however, state values alone are not
+sufficient.''
+
+If you use an action value estimate, then the agent can select the greedy action
+simply:
+$$
+\pi(s) = \arg\max_a Q(s,a)
+$$
+If you have state values, then the agent can select the greedy action directly
+only if it knows the model distribution $p(r, s'|s, a)$, i.e.,
+$$
+\pi(s) = \arg\max_a \sum_{s,r'} p(r, s'|s, a) (r + \gamma v(s'))
+$$
+
 \end
